@@ -13,11 +13,11 @@ import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.Getter;
 
+@Data
 @Entity
 @Table(name = "reservations")
 public class Reservation {
 
-    @Data
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -31,7 +31,7 @@ public class Reservation {
     protected Reservation() {};
 
     public Reservation(LocalDate startDate, LocalDate endDate, User user) {
-        this.starDate = startDate;
+        this.startDate = startDate;
         this.endDate = endDate;
         this.user = user;
     }
