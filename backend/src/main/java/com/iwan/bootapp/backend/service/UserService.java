@@ -3,7 +3,7 @@ package com.iwan.bootapp.backend.service;
 import org.springframework.stereotype.Service;
 import com.iwan.bootapp.backend.repository.UserRepository;
 import com.iwan.bootapp.backend.model.User;
-
+import java.util.*;
 
 @Service
 public class UserService {
@@ -17,5 +17,9 @@ public class UserService {
     public User createUser (String username, String fullname) {
         User user = new User(username, fullname);
         return userRepository.save(user);
+    }
+
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
     }
 }
