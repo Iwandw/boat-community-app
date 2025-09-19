@@ -25,6 +25,11 @@ public class UserController {
         this.userService = userService;
     }
 
+    @GetMapping("/{id}")
+    public User getUser(@PathVariable Long id) {
+        return userService.getUser(id);
+    }
+
     @GetMapping
     public List<User> getAllUsers () {
         return userService.getAllUsers();
@@ -32,7 +37,7 @@ public class UserController {
 
     @PostMapping
     public User postUsers(@RequestBody User user) {
-        return userService.createUser(user.getUsername(), user.getFull_name());
+        return userService.createUser(user.getUsername(), user.getFull_name(), user.getAge());
     }
 
     @PutMapping("/{id}")
@@ -42,6 +47,6 @@ public class UserController {
 
     @DeleteMapping("/{id}")
     public Long deleteUsers(@PathVariable Long id) {
-        if (return userService.deleteUser(id)) = true ;
+        return userService.deleteUser(id);
    }
 }

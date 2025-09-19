@@ -28,14 +28,18 @@ public class User {
     @Column(nullable = false, name = "full_name")
     private String full_name;
 
+    @Column(name = "age")
+    private int age;
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Reservation> reservations = new ArrayList<>();
 
     protected User() {}
 
-    public User (String username, String full_name) {
+    public User (String username, String full_name, int age) {
         this.username = username;
         this.full_name = full_name;
+        this.age = age;
     }
 
 }

@@ -1,5 +1,6 @@
 package com.iwan.bootapp.backend.service;
 
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 import com.iwan.bootapp.backend.repository.UserRepository;
 import com.iwan.bootapp.backend.model.User;
@@ -14,8 +15,8 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public User createUser (String username, String fullname) {
-        User user = new User(username, fullname);
+    public User createUser (String username, String fullname, int age) {
+        User user = new User(username, fullname, age);
         return userRepository.save(user);
     }
 
@@ -28,6 +29,13 @@ public class UserService {
     }
 
     public User updateUser(Long id, User user) {
+        User existingUser = userRepository.findById(id)
+
+        if (user.getUsername() =! null) {
+
+        }
+
+            .orElseThrow(() -> new EntityNotFoundException("User not found with id" + id));
     }
 
     public User deleteUser(Long id) {
