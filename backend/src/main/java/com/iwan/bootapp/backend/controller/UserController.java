@@ -36,12 +36,11 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    public User putUsers(@PathVariable Long id, @RequestBody User user) {
+    public User updateUsers(@PathVariable Long id, @RequestBody User user) {
         return userService.updateUser(id, user);
     }
 
     @DeleteMapping
     public deleteUsers() {
-        
-    }
+   }
 }
