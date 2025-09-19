@@ -19,10 +19,18 @@ public class UserService {
         return userRepository.save(user);
     }
 
+    public User getUser (Long id){
+        return userRepository.findById(id).orElse(null);
+    }
+
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
 
     public User updateUser(Long id, User user) {
+    }
+
+    public User deleteUser(Long id) {
+
     }
 }
